@@ -6,7 +6,7 @@ namespace EMP1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Emp.check();
         }
     }
 }
