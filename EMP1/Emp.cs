@@ -9,12 +9,11 @@ namespace EMP1
         public const int FullTime = 1;
         public const int PartTime = 2;
 
-        public static int check()
+        public static int check(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
         {
-            int MaxWorkingHrs = 100;
-            int wage = 0, WagePerHr = 20, NoOfWorkingDays = 20;
+            
             int totalEmpHr = 0, TotalWorkingDays = 0, empHr = 0;
-            while (totalEmpHr <= MaxWorkingHrs && TotalWorkingDays <= NoOfWorkingDays)
+            while (totalEmpHr <= maxHrsInMonth && TotalWorkingDays <= NoOfWorkingDays)
             {
                 TotalWorkingDays++;
 
@@ -45,7 +44,7 @@ namespace EMP1
 
                 Console.WriteLine("Days: " + TotalWorkingDays + " WorkingHr " + empHr);
             }
-               int TotalEmpWage = totalEmpHr * WagePerHr;
+               int TotalEmpWage = totalEmpHr * empPerHours;
 
              Console.WriteLine("The total wage"+ TotalEmpWage);
                return TotalEmpWage;
