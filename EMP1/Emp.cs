@@ -8,21 +8,26 @@ namespace EMP1
     {
         public static void check()
         {
-            int FullTime = 1;
+            int FullTime = 1, FullTimeHr = 8;
+
+            int EmpDailyWage = 20;
+
+            int wage = 0;
 
             Random obj = new Random();
 
             int empCheck = obj.Next(0, 2);
 
-            if (empCheck == FullTime)
+            if (FullTime == empCheck)
             {
-                Console.WriteLine("Employee is present");
+                wage = wage + (FullTimeHr * EmpDailyWage);
+
+                Console.WriteLine("The total age is :" + wage);
             }
-
             else
-            {
-                Console.WriteLine("Employee is absent");
 
+            {
+                Console.WriteLine("the total wage is" + wage);
             }
         }
     }
