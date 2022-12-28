@@ -8,10 +8,22 @@ namespace EMP1
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
+        private string company;
+        private int empPerHours;
+        private int NoOfWorkingDays;
+        private int maxHrsInMonth;
+        public int tew;
 
-        public static int check(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
+        public Emp(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
         {
-            
+            this.company = company;
+            this.empPerHours = empPerHours;
+            this.NoOfWorkingDays = NoOfWorkingDays;
+            this.maxHrsInMonth = maxHrsInMonth;
+        }
+        public void check()
+        {
+
             int totalEmpHr = 0, TotalWorkingDays = 0, empHr = 0;
             while (totalEmpHr <= maxHrsInMonth && TotalWorkingDays <= NoOfWorkingDays)
             {
@@ -40,16 +52,14 @@ namespace EMP1
                         break;
 
                 }
-                 totalEmpHr = empHr;
+                totalEmpHr += empHr;
 
-                Console.WriteLine("Days: " + TotalWorkingDays + " WorkingHr " + empHr);
+
             }
-               int TotalEmpWage = totalEmpHr * empPerHours;
+            int TotalEmpWage = totalEmpHr * empPerHours;
 
-             Console.WriteLine("The total wage"+ TotalEmpWage);
-               return TotalEmpWage;
-
-        }
+            Console.WriteLine("The total wage of the company" + TotalEmpWage);
+        }   
     
     }
 }

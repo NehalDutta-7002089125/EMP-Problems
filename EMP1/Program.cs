@@ -6,8 +6,10 @@ namespace EMP1
     {
         static void Main(string[] args)
         {
-            Emp.check("DMart", 20, 2, 10);
-            Emp.check("Reliance", 30, 2, 20);
+            Emp DMart = new Emp("DMart", 20, 2, 10);
+            Emp Reliance = new Emp("Reliance", 30, 2, 20);
+            DMart.check();
+            Reliance.check();
         }
     }
 }
