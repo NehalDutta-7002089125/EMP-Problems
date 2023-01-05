@@ -8,7 +8,8 @@ namespace EMP1
     {
         public static void check()
         {
-            int FullTime = 1, FullTimeHr = 8;
+            int FullTime = 1;
+            FullTimeHr = 8;
 
             int EmpDailyWage = 20;
 
