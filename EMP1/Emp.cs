@@ -16,12 +16,12 @@ namespace EMP1
 
             if (empCheck == FullTime)
             {
-                Console.WriteLine("Employee is present");
+                Console.WriteLine("Employee is Present");
             }
 
             else
             {
-                Console.WriteLine("Employee is absent");
+                Console.WriteLine("Employee is Absent");
 
             }
         }
