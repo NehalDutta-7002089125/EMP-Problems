@@ -13,7 +13,8 @@ namespace EMP1
         {
             int EmpPerHr = 20, wage = 0;
 
-            int empHr = 0, TotalWage = 0, TotalWorkingDays = 20;
+            int empHr = 0, TotalWage = 0;
+            TotalWorkingDays = 20;
 
 
             Random obj = new Random();
