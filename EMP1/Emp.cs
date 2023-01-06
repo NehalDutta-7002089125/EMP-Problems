@@ -8,12 +8,14 @@ namespace EMP1
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
-
+        public const WagePerHr = 20;
+        public const NoOfWorkingDays = 20;
+        public const MaxWorkingHrs = 100;
         public static int check()
         {
-            int MaxWorkingHrs = 100;
-            int wage = 0, WagePerHr = 20, NoOfWorkingDays = 20;
-            int totalEmpHr = 0, TotalWorkingDays = 0, empHr = 0;
+            
+            int wage = 0, empHr = 0;
+            int totalEmpHr = 0, TotalWorkingDays = 0;
             while (totalEmpHr <= MaxWorkingHrs && TotalWorkingDays <= NoOfWorkingDays)
             {
                 TotalWorkingDays++;
@@ -27,12 +29,12 @@ namespace EMP1
 
                     case PartTime:
 
-                        empHr = 4 * TotalWorkingDays;
+                        empHr = 4;
                         break;
 
                     case FullTime:
 
-                        empHr = 8 * TotalWorkingDays;
+                        empHr = 8;
                         break;
 
                     default:
@@ -41,7 +43,7 @@ namespace EMP1
                         break;
 
                 }
-                 totalEmpHr = empHr;
+                 totalEmpHr+ = empHr;
 
                 Console.WriteLine("Days: " + TotalWorkingDays + " WorkingHr " + empHr);
             }
