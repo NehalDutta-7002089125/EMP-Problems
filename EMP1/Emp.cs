@@ -8,15 +8,16 @@ namespace EMP1
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
-
+        public const int TotalWorkingDays = 20;
+        public const int EmpPerHr = 20
         public static void check()
         {
-            int EmpPerHr = 20, wage = 0;
+            int wage = 0;
 
             int empHr = 0, TotalWage = 0;
-            TotalWorkingDays = 20;
-
-
+            
+          for(int day=0; day<TotalWorkingDays; days++)
+          {
             Random obj = new Random();
 
             int empCheck = obj.Next(0, 3);
@@ -26,12 +27,12 @@ namespace EMP1
 
                 case PartTime:
 
-                    empHr = 4 * TotalWorkingDays;
+                    empHr = 4 ;
                     break;
 
                 case FullTime:
 
-                    empHr = 8 * TotalWorkingDays;
+                    empHr = 8 ;
                     break;
 
                 default:
@@ -42,8 +43,9 @@ namespace EMP1
             }
 
             wage = empHr * EmpPerHr;
-            TotalWage= wage;
-
+            TotalWage += wage;
+             Console.WriteLine("The wage is : "+ wage);
+          }
             Console.WriteLine("The total wage is :" + TotalWage);
 
         }
