@@ -8,15 +8,11 @@ namespace EMP1
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
-
+        public const int EmpPerHr = 20;
         public static void check()
         {
-          int EmpPerHr = 20;
-
             int empHr = 4; 
             TotalWage = 0;
-
-
             Random obj = new Random();
 
             int empCheck = obj.Next(0, 3);
