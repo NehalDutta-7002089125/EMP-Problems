@@ -6,10 +6,11 @@ namespace EMP1
     {
         static void Main(string[] args)
         {
-            Emp DMart = new Emp("DMart", 20, 2, 10);
-            Emp Reliance = new Emp("Reliance", 30, 2, 20);
-            DMart.check();
-            Reliance.check();
+            Emp obj= new Emp();
+            obj.addCompanyWage("dmart", 20, 2, 10);
+            obj.addCompanyWage("reliance", 25, 12, 30);
+            obj.addCompanyWage("nike", 10, 13, 35);
+            obj.check();
         }
     }
 }

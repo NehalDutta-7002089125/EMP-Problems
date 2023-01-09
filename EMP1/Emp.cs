@@ -8,24 +8,31 @@ namespace EMP1
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
-        private string company;
-        private int empPerHours;
-        private int NoOfWorkingDays;
-        private int maxHrsInMonth;
-        public int tew;
+        private int noOfCompany = 0;
+        private CompanyEMP [] CompanyEMPwageArray;
 
-        public Emp(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
+        public Emp()
         {
-            this.company = company;
-            this.empPerHours = empPerHours;
-            this.NoOfWorkingDays = NoOfWorkingDays;
-            this.maxHrsInMonth = maxHrsInMonth;
+            this.CompanyEMPwageArray = new CompanyEMP[3];
+
+        }
+        public  void addCompanyWage(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
+        {
+            CompanyEMPwageArray[this.noOfCompany] = new CompanyEMP(company, empPerHours, NoOfWorkingDays, maxHrsInMonth);
+            noOfCompany++;
         }
         public void check()
         {
-
+            for(int i=0; i<noOfCompany; i++)
+            {
+                CompanyEMPwageArray[i].setcheck1(this.check(this.CompanyEMPwageArray[i]));
+                Console.WriteLine(this.CompanyEMPwageArray[i].toString());
+            }
+        }
+        private int check(CompanyEMP companyEMP)
+        { 
             int totalEmpHr = 0, TotalWorkingDays = 0, empHr = 0;
-            while (totalEmpHr <= maxHrsInMonth && TotalWorkingDays <= NoOfWorkingDays)
+            while (totalEmpHr <= companyEMP.maxHrsInMonth && TotalWorkingDays < companyEMP.NoOfWorkingDays)
             {
                 TotalWorkingDays++;
 
@@ -53,12 +60,12 @@ namespace EMP1
 
                 }
                 totalEmpHr += empHr;
-
+                Console.WriteLine("Days" + TotalWorkingDays+ "emphr"+empHr);
 
             }
-            int TotalEmpWage = totalEmpHr * empPerHours;
 
-            Console.WriteLine("The total wage of the company" + TotalEmpWage);
+            return totalEmpHr * companyEMP.empPerHours;
+
         }   
     
     }
