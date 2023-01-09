@@ -45,12 +45,12 @@ namespace EMP1
 
                     case PartTime:
 
-                        empHr = 4 * TotalWorkingDays;
+                        empHr = 4 ;
                         break;
 
                     case FullTime:
 
-                        empHr = 8 * TotalWorkingDays;
+                        empHr = 8 ;
                         break;
 
                     default:
