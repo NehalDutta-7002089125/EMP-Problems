@@ -4,32 +4,34 @@ using System.Text;
 
 namespace EMP1
 {
-    public class Emp
+    public class Emp: IComputeEMPWage
     {
         public const int FullTime = 1;
         public const int PartTime = 2;
-        private int noOfCompany = 0;
-        private CompanyEMP [] CompanyEMPwageArray;
+        private LinkedList<CompanyEMP> CompanyEMPList;
+        private Dictionary<string, CompanyEMP> CompanyEMPDictionary;
 
         public Emp()
         {
-            this.CompanyEMPwageArray = new CompanyEMP[3];
-
+            this.CompanyEMPList = new LinkedList<CompanyEMP>();
+            this.CompanyEMPDictionary= new Dictionary<string, CompanyEMP>();
         }
         public  void addCompanyWage(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth)
         {
-            CompanyEMPwageArray[this.noOfCompany] = new CompanyEMP(company, empPerHours, NoOfWorkingDays, maxHrsInMonth);
-            noOfCompany++;
+            CompanyEMP a = new CompanyEMP(company, empPerHours,NoOfWorkingDays, maxHrsInMonth);
+            this.CompanyEMPList.AddLast(a);
+            this.CompanyEMPDictionary.Add(company, a);
         }
-        public void check()
+        public void computeEMPWage()
         {
-            for(int i=0; i<noOfCompany; i++)
+            foreach(CompanyEMP a in this.CompanyEMPList)
             {
-                CompanyEMPwageArray[i].setcheck1(this.check(this.CompanyEMPwageArray[i]));
-                Console.WriteLine(this.CompanyEMPwageArray[i].toString());
+                a.setcheck1(this.computeEMPWage(a));
+                Console.WriteLine(a.ToString());
             }
+        
         }
-        private int check(CompanyEMP companyEMP)
+        private int computeEMPWage(CompanyEMP companyEMP)
         { 
             int totalEmpHr = 0, TotalWorkingDays = 0, empHr = 0;
             while (totalEmpHr <= companyEMP.maxHrsInMonth && TotalWorkingDays < companyEMP.NoOfWorkingDays)
@@ -66,7 +68,12 @@ namespace EMP1
 
             return totalEmpHr * companyEMP.empPerHours;
 
-        }   
-    
+        }  
+        public int getTotalWage(string company)
+        {
+            return this.CompanyEMPDictionary[company].TotalEmpWage;
+        }
+
+
     }
 }

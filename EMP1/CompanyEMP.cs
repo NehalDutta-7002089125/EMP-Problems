@@ -4,6 +4,12 @@ using System.Text;
 
 namespace EMP1
 {
+    public interface IComputeEMPWage
+    {
+        public void addCompanyWage(string company, int empPerHours, int NoOfWorkingDays, int maxHrsInMonth);
+        public void computeEMPWage();
+        public int getTotalWage(string company);
+    }
     internal class CompanyEMP
     {
         public string company;
